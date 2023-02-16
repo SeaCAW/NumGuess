@@ -1,0 +1,41 @@
+import numpy as np
+
+def num():
+    print("WELCOME TO THE NUMBER GUESSING GAME!")
+    rounds= int(input("How many rounds do you want to play?"))
+    chances = 0
+    winCount = 0
+    a = int(input("Pick a STARTING number(10-20)"))
+    b = int(input("Pick a ENDING number(10-20)"))
+    if (a >= 10 and a <= 20) and (b>=10 and b <=20) and (a < b):
+        
+        while chances < rounds:
+            number = np.random.randint(a,b+1)
+            if number% 2 == 0:
+                print("its a even number")
+            else:
+                print("its a odd number")
+        
+            if number%3 == 0:
+                print("number is a multiple of 3")
+            else:
+                print("number is not a multiple of 3")
+      
+            guess = int(input())
+        
+            if guess == number:
+                print("Congratulation YOU GUESS THE RIGHT NUMBER")
+                winCount += 1
+            else:
+                print("Sorry Fam ya lost :(! The number is",number)
+            
+            chances +=1
+   
+    else:
+         print("invalid range. Pick a number between 10 and 20 smh")
+            
+        
+            
+    finalScore = (winCount*(b-a)/rounds)
+    print("Final Score:", finalScore)
+        
